@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+
+        <div class="buttons">
+            <button class="btn" onclick="clearDisplay()">C</button>
+            <button class="btn" onclick="deleteLast()">⌫</button>
+            <button class="btn" onclick="appendToDisplay('%')">%</button>
+            <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+
+            <button class="btn" onclick="appendToDisplay('7')">7</button>
+            <button class="btn" onclick="appendToDisplay('8')">8</button>
+            <button class="btn" onclick="appendToDisplay('9')">9</button>
+            <button class="btn operator" onclick="appendToDisplay('*')">×</button>
+
+            <button class="btn" onclick="appendToDisplay('4')">4</button>
+            <button class="btn" onclick="appendToDisplay('5')">5</button>
+            <button class="btn" onclick="appendToDisplay('6')">6</button>
+            <button class="btn operator" onclick="appendToDisplay('-')">−</button>
+
+            <button class="btn" onclick="appendToDisplay('1')">1</button>
+            <button class="btn" onclick="appendToDisplay('2')">2</button>
+            <button class="btn" onclick="appendToDisplay('3')">3</button>
+            <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+
+            <button class="btn zero" onclick="appendToDisplay('0')">0</button>
+            <button class="btn" onclick="appendToDisplay('.')">.</button>
+            <button class="btn equals" onclick="calculateResult()">=</button>
+        </div>
+
+        <div class="memory-buttons">
+            <button class="btn memory" onclick="memoryClear()">MC</button>
+            <button class="btn memory" onclick="memoryRecall()">MR</button>
+            <button class="btn memory" onclick="memoryAdd()">M+</button>
+            <button class="btn memory" onclick="memorySubtract()">M-</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+}
+
+.calculator {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 320px;
+}
+
+#display {
+    width: 100%;
+    height: 60px;
+    font-size: 26px;
+    text-align: right;
+    padding: 10px;
+    border: none;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.memory-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+    border: none;
+    background: #e0e0e0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #d6d6d6;
+}
+
+.operator {
+    background: #f7b731;
+    color: white;
+}
+
+.operator:hover {
+    background: #e09b24;
+}
+
+.equals {
+    background: #20bf6b;
+    color: white;
+}
+
+.equals:hover {
+    background: #1a9a57;
+}
+
+.memory {
+    width: 70px;
+    background: #778beb;
+    color: white;
+}
+
+.memory:hover {
+    background: #5a69c4;
+}
+
+.zero {
+    grid-column: span 2;
+    width: 100%;
+}
+
+@media (max-width: 360px) {
+    .calculator {
+        width: 90%;
+    }
+}
+
+    </style>
+    
+</body>
+</html>
